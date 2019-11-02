@@ -1,0 +1,109 @@
+.cards
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+.card
+	width: 300px
+	height: 300px
+	margin-bottom: 40px
+	padding: 30px 20px 20px 10px
+	box-shadow: 0 0 10px $gray-for-border
+	transition: all .15s
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	font-family: 'Open Sans', sans-serif
+	font-size: 18px
+	font-weight: bold
+	color: $gray
+	position: relative
+	&:hover
+		box-shadow: 0 2px 30px $gray-for-border
+	&__title
+		font: inherit
+		line-height: 1em
+		height: 1em
+		word-wrap: break-word
+		overflow: hidden
+		display: -webkit-box
+		-webkit-line-clamp: 1
+		-webkit-box-orient: vertical
+	&__description
+		line-height: 1em
+		max-height: 7.1em
+		word-wrap: break-word
+		overflow: hidden
+		display: -webkit-box
+		-webkit-line-clamp: 7
+		-webkit-box-orient: vertical
+	&__priority
+		width: 90px
+		padding-top: 10px
+		padding-bottom: 10px
+		border-radius: 12px
+		text-align: center
+		border: 1px dashed $gray-for-border
+	&__footer
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__status
+		width: 35px
+		font-family: inherit
+		color: inherit
+		font-size: 16px
+		padding-bottom: 8px
+		border: 1px solid $gray-for-border
+		border-radius: 10px
+		text-align: center
+		&:hover
+			 border: 1px solid $main-blue
+	&__status-popup
+		position: absolute
+		bottom: -100px
+		right: 20px
+		font-family: inherit
+		font-size: inherit
+		width: 120px
+		display: flex
+		flex-direction: column
+		border: 1px solid $gray-for-border
+		background-color: white
+		&:before, &:after
+			content: ''
+			position: absolute
+			border: 12px solid transparent
+			border-bottom: 12px solid $gray-for-border
+			top: -24px
+			right: 5px
+			z-index: -1
+		&:after
+			border-bottom: 12px solid white
+			top: -23px
+			right: 5px
+		&.hidden
+			display: none
+		&.show
+			display: block
+	&__status-button
+		font-family: inherit
+		font-size: inherit
+		width: 100%
+		background-color: lighten($gray-for-border, 8%)
+		border-bottom: 1px solid $gray-for-border
+		padding-top: 5px
+		padding-bottom: 7px
+		transition: all .15s
+		&:last-child
+			border-bottom: none
+		&:hover
+			background-color: white
+	&__checkbox
+		position: absolute
+		top: -10px
+		right: 0
+	&.done
+		background-color: $gray-for-border
+		opacity: .5
+
+
