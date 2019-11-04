@@ -16,7 +16,7 @@ function style() {
 	return gulp.src(['./src/sass/*.sass','./src/sass/components/*.sass', './src/sass/services/*.sass'])
 		.pipe(sass().on('error',sass.logError))
 		.pipe(autoprefixer())
-		.pipe(concatCSS("style.css"))
+		.pipe(concat("style.css"))
 		.pipe(gulp.dest('./src/css'))
 		.pipe(browserSync.stream());
 }
