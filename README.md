@@ -4,15 +4,13 @@
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
-```
-gulp
-```
-
-### Compiles all js files to bundle
+### Compiles js files
 ```
 gulp jsBundle
+```
+### Hot-reloads for development
+```
+gulp
 ```
 
 ### Compiles all sass files to bundle css
