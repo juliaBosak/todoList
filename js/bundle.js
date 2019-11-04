@@ -119,6 +119,7 @@ class App {
       this.todoItems.push(item);
       this.renderItemList();
     });
+    this.addOptionsHandlers();
     this.addSearchHandlers();
   }
 
@@ -157,6 +158,26 @@ class App {
     this.statusSelect.addEventListener('change', () => this.renderItemList());
     this.prioritySelect.addEventListener('change', () => this.renderItemList());
     this.searchInput.addEventListener('input', () => this.renderItemList());
+  }
+
+  addOptionsHandlers() {
+    const selects = document.getElementsByTagName('select');
+
+    for (let index = 0; index < selects.length; index++) {
+      const selectOptions = selects[index].options;
+      selectOptions[selects[index].selectedIndex].hidden = true;
+      selects[index].addEventListener('change', () => {
+        const selectedIndex = selects[index].selectedIndex;
+
+        for (let optionIndex = 0; optionIndex < selectOptions.length; optionIndex += 1) {
+          if (optionIndex === selectedIndex) {
+            selectOptions[selectedIndex].hidden = true;
+          } else {
+            selectOptions[optionIndex].hidden = false;
+          }
+        }
+      });
+    }
   }
 
 }
