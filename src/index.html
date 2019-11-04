@@ -6,7 +6,8 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet"
+	      href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<title>todo-list</title>
 </head>
@@ -20,91 +21,91 @@
 			<div class="todo-list__content">
 				<form action="" class="todo-list__form main-form">
 					<label class="main-form__field field__wrap">
-						<input type="search" class="field search-field" placeholder="search by title">
+						<input type="search" class="field search-field" id="search-field" placeholder="search by title">
 						<i class="zmdi zmdi-search search-icon"></i>
 					</label>
 					<label class="main-form__status-select field__wrap">
 						<select name="status-select" id="status-select" class="field select-field">
-							<option value="all" selected disabled hidden>all</option>
+							<option value="">all</option>
 							<option value="open">open</option>
-						<option value="done">done</option>
-					</select>
+							<option value="done">done</option>
+						</select>
 						<i class="zmdi zmdi-chevron-down chevron-down-icon"></i>
 					</label>
 					<label class="main-form__priority-select field__wrap">
 						<select name="priority-select" id="priority-select" class="field select-field">
-							<option value="all" selected disabled hidden>all</option>
+							<option value="">all</option>
 							<option value="high">high</option>
 							<option value="normal">normal</option>
 							<option value="low">low</option>
 						</select>
 						<i class="zmdi zmdi-chevron-down chevron-down-icon"></i>
 					</label>
-					<button class="page-button main-form__button" id="createButton">Create</button>
+					<button type="button" class="page-button main-form__button" id="createButton">Create</button>
 				</form>
-				<div class="todo-list__cards cards">
-					<div class="card">
-						<h3 class="card__title">execute test task</h3>
-						<p class="card__description">Ciklum internship</p>
-						<div class="card__footer">
-							<p class="card__priority">
-								high
-							</p>
-							<button class="card__status status-button">
-								...
-							</button>
-						</div>
-						<div class="card__status-popup hidden fadeIn">
-							<button class="card__status-button">
-								done
-							</button>
-							<button class="card__status-button">
-								edit
-							</button>
-							<button class="card__status-button">
-								delete
-							</button>
-						</div>
-						<label class="checkbox-field__wrap card__checkbox hidden">
-							<input type="checkbox" checked class="checkbox-field">
-							<span class="checkbox-field__label"></span>
-						</label>
-					</div>
+				<div class="todo-list__cards cards" id="todo-items">
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="overlay hidden" id="overlay">
-		<div class="popup">
-			<form action="" class="popup__form">
+		<div class="popup zoomIn" id="popup">
+			<form class="popup__form" id="popup-form">
 				<label class="field__wrap">
 					<label class="field__label">Title:</label>
-					<input type="text" class="field" placeholder="Title">
+					<input class="field" type="text" id="popup-title" placeholder="Title" required>
 				</label>
 				<label class="field__wrap">
-					<label  class="field__label">Description:</label>
-					<textarea
-							name="textarea-field"
-							class="field textarea-field"
-							placeholder="Description"></textarea>
+					<label class="field__label">Description:</label>
+					<textarea class="field textarea-field" id="popup-description" placeholder="Description"></textarea>
 				</label>
 				<label class="field__wrap">
 					<label class="field__label">Priority:</label>
-					<select name="popup-priority-select" class="field select-field">
-						<option value="high" selected disabled hidden>High</option>
+					<select class="field select-field" id="popup-priority" required>
+						<option value="high">High</option>
 						<option value="normal">Normal</option>
 						<option value="low">Low</option>
 					</select>
 					<i class="zmdi zmdi-chevron-down chevron-down-icon"></i>
 				</label>
 				<div class="popup__buttons">
-					<button class="page-button popup__button" id="cancel-button">Cancel</button>
-					<button class="page-button popup__button" id="save-button">Save</button>
+					<button class="page-button popup__button" type="button" id="cancel-button">Cancel</button>
+					<button class="page-button popup__button" type="submit" >Save</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<div id="card-template" hidden>
+		<div class="card">
+			<h3 class="card__title">execute test task</h3>
+			<p class="card__description">Ciklum internship</p>
+			<div class="card__footer">
+				<p class="card__priority">
+					high
+				</p>
+				<button class="card__status status-button">
+					...
+				</button>
+			</div>
+			<div class="card__status-popup hidden fadeIn">
+				<button class="card__status-button">
+					done
+				</button>
+				<button class="card__status-button">
+					edit
+				</button>
+				<button class="card__status-button">
+					delete
+				</button>
+			</div>
+			<label class="checkbox-field__wrap card__checkbox hidden">
+				<input type="checkbox" checked class="checkbox-field">
+				<span class="checkbox-field__label"></span>
+			</label>
+		</div>
+	</div>
+
 </main>
-<script src="js/index.js"></script>
+<script src="js/bundle.js"></script>
 </body>
 </html>

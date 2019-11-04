@@ -3,19 +3,13 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const concatCSS = require('gulp-concat-css');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const webpack = require('webpack-stream');
 
-function babelJs() {
-	return gulp.src('src/**/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(babel({
-			presets: ['@babel/env']
-		}))
-		.pipe(concat('index.js'))
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('dist'))
+function jsBundle() {
+		return gulp.src('src/js/index.js')
+			.pipe(webpack(require('./webpack.config.js')))
+			.pipe(gulp.dest('src/js'));
 }
 
 function style() {
@@ -29,14 +23,15 @@ function style() {
 
 function watch() {
 	browserSync.init({
-		server: {
-			baseDir: "./src",
-			index: "/index.html",
-		}
-	});
-	gulp.watch(['./src/sass/*.sass','./src/sass/components/*.sass', './src/sass/services/*.sass'], { usePoling: true }, style);
-	gulp.watch('./src/*.html').on('change', browserSync.reload);
-	gulp.watch('./src/js/*.js').on('change', browserSync.reload);
+	server: {
+		baseDir: "./src",
+		index: "/index.html",
+	}
+});
+gulp.watch(['./src/sass/*.sass','./src/sass/components/*.sass', './src/sass/services/*.sass'], { usePoling: true }, style);
+gulp.watch('./src/*.html').on('change', browserSync.reload);
+gulp.watch('./src/js/*.js', jsBundle).on('change', browserSync.reload);
 }
 exports.default = watch;
 exports.style = style;
+exports.jsBundle = jsBundle;
