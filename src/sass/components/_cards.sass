@@ -22,7 +22,7 @@
 		box-shadow: 0 2px 30px $gray-for-border
 	&__title
 		font: inherit
-		line-height: 1em
+		line-height: 1.1em
 		height: 1.1em
 		word-wrap: break-word
 		overflow: hidden
@@ -30,12 +30,12 @@
 		-webkit-line-clamp: 1
 		-webkit-box-orient: vertical
 	&__description
-		line-height: 1em
-		max-height: 7.1em
+		line-height: 1.2em
+		max-height: 9.6em
 		word-wrap: break-word
 		overflow: hidden
 		display: -webkit-box
-		-webkit-line-clamp: 7
+		-webkit-line-clamp: 5
 		-webkit-box-orient: vertical
 	&__priority
 		width: 90px
@@ -61,6 +61,7 @@
 			 border: 1px solid $main-blue
 	&__status-popup
 		position: absolute
+		z-index: 2
 		bottom: -100px
 		right: 20px
 		font-family: inherit
@@ -109,5 +110,26 @@
 		opacity: .5
 		& > .card__checkbox
 			display: block
+
+@include for-medium
+	.cards
+		margin-left: -40px
+	.card
+		width: 280px
+		margin-left: 40px
+
+@include for-small
+	.cards
+		margin-left: -18px
+	.card
+		margin-left: 50px
+
+@include for-extra-small
+	.cards
+		justify-content: center
+		margin-left: 0
+	.card
+		margin-left: 0
+		width: 280px
 
 

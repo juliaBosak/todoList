@@ -26,10 +26,9 @@ export default class TodoItemPopup {
 		this.title.value = item.title;
 		this.description.value = item.description;
 		this.priority.value = item.priority;
-		this.popup.classList.remove('zoomOut');
-		this.popup.classList.add('zoomIn');
-		this.popup.classList.remove('hidden');
-		this.popup.classList.add('show');
+		this.popup.classList.remove('zoomOut', 'hidden');
+		this.popup.classList.add('zoomIn', 'show');
+
 		this.overlayElement.classList.remove('hidden');
 		this.overlayElement.classList.add('show');
 	}
@@ -60,10 +59,14 @@ export default class TodoItemPopup {
 	}
 
 	closePopup() {
-		this.popup.classList.remove('show');
-		this.popup.classList.add('hidden');
-		this.overlayElement.classList.remove('show');
-		this.overlayElement.classList.add('hidden');
+		this.popup.classList.remove('zoomIn');
+		this.popup.classList.add('zoomOut');
+		setTimeout( () => {
+			this.overlayElement.classList.remove('show');
+			this.overlayElement.classList.add('hidden');
+			this.popup.classList.remove('show');
+			this.popup.classList.add('hidden');
+		}, 350);
 	}
 
 

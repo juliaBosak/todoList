@@ -1,5 +1,5 @@
 import TodoItemPopup from "./TodoItemPopup";
-import TodoItem1 from "./TodoItem1";
+import TodoItem from "./TodoItem";
 
 class App {
 	todoItems = [];
@@ -21,7 +21,7 @@ class App {
 	addCreateButtonHandler() {
 		const createButton = document.getElementById('createButton');
 		createButton.addEventListener('click', () => {
-			this.todoItemPopup.show(new TodoItem1(this));
+			this.todoItemPopup.show(new TodoItem(this));
 		});
 	}
 

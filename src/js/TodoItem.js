@@ -1,4 +1,4 @@
-class TodoItem1 {
+class TodoItem {
 	title = '';
 	description = '';
 	priority = 'high';
@@ -78,4 +78,4 @@ class TodoItem1 {
 
 }
 
-export default TodoItem1;
+export default TodoItem;

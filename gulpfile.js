@@ -27,10 +27,10 @@ function watch() {
 		baseDir: "./src",
 		index: "/index.html",
 	}
-});
-gulp.watch(['./src/sass/*.sass','./src/sass/components/*.sass', './src/sass/services/*.sass'], { usePoling: true }, style);
-gulp.watch('./src/*.html').on('change', browserSync.reload);
-gulp.watch('./src/js/*.js', jsBundle).on('change', browserSync.reload);
+	});
+	gulp.watch(['./src/sass/*.sass','./src/sass/components/*.sass', './src/sass/services/*.sass'], { usePoling: true }, style);
+	gulp.watch('./src/*.html').on('change', browserSync.reload);
+	gulp.watch('./src/js/*.js', jsBundle).on('change', browserSync.reload);
 }
 exports.default = watch;
 exports.style = style;
